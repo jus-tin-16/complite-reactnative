@@ -7,63 +7,63 @@ import {
     StyleSheet,
     SafeAreaView,
   } from "react-native";
-  import { Link } from 'expo-router';
-  
-  export default function Index() {
-    const[isLoggedIn, setIsLoggedIn] = useState(false);
+import { Link } from 'expo-router';
 
-    if (isLoggedIn) {
-      return (
-        <SafeAreaView>
-          <View style={styles.container}>
-            <View style={styles.header}>  
-              <Link href="/studDashboard" style={styles.button}>
-                Go to About screen
-              </Link>
-            </View>
-            <View style={
-              {
-                flex: 2,
-                backgroundColor: 'yellow',
-              }}
-            >
-              <TouchableOpacity 
-                style={styles.loginButton} 
-                onPress={() => setIsLoggedIn(!isLoggedIn)}
-              >
-                <Text style={styles.label}>Logout</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </SafeAreaView>
-      )
-    }
+export default function Index() {
+  const[isLoggedIn, setIsLoggedIn] = useState(false);
 
+  if (isLoggedIn) {
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.formContainer}>
-          <Text style={styles.logo}>LOGO</Text>
-          <Text style={styles.label}>Email/Username</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Email/Username"
-          />
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter Password"
-            secureTextEntry={true}
-          />
-          <TouchableOpacity 
-            style={styles.loginButton} 
-            onPress={() => setIsLoggedIn(!isLoggedIn)}
+      <SafeAreaView>
+        <View style={styles.container}>
+          <View style={styles.header}>  
+            <Link href="/studDashboard" style={styles.button}>
+              Go to About screen
+            </Link>
+          </View>
+          <View style={
+            {
+              flex: 2,
+              backgroundColor: 'yellow',
+            }}
           >
-            <Text style={styles.label}>Login</Text>
-          </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.loginButton} 
+              onPress={() => setIsLoggedIn(false)}
+            >
+              <Text style={styles.label}>Logout</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </SafeAreaView>
-    );
+    )
   }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.formContainer}>
+        <Text style={styles.logo}>LOGO</Text>
+        <Text style={styles.label}>Email/Username</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Email/Username"
+        />
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Password"
+          secureTextEntry={true}
+        />
+        <TouchableOpacity 
+          style={styles.loginButton} 
+          onPress={() => setIsLoggedIn(true)}
+        >
+          <Text style={styles.label}>Login</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+}
   
   const styles = StyleSheet.create({
     container: {
