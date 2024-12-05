@@ -6,7 +6,7 @@ export default function Rankings() {
     <View style={styles.container}>
       <Text style={styles.headText}>Rankings</Text>
       <ScrollView>
-        <View style={[styles.Card, styles.Shadow]}>
+        <View style={styles.Card}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.Position}>1</Text>
             <Image source={require('../assets/avatar.png')} alt='avatar' style={styles.Avatar}/>
@@ -17,7 +17,7 @@ export default function Rankings() {
             <Text style={styles.userPoint}>500 </Text>
           </View>
         </View>
-        <View style={[styles.Card, styles.Shadow]}>
+        <View style={styles.Card}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.Position}>2</Text>
             <Image source={require('../assets/avatar.png')} alt='avatar' style={styles.Avatar}/>
@@ -28,7 +28,7 @@ export default function Rankings() {
             <Text style={styles.userPoint}>500 </Text>
           </View>
         </View>
-        <View style={[styles.Card, styles.Shadow]}>
+        <View style={styles.Card}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.Position}>3</Text>
             <Image source={require('../assets/avatar.png')} alt='avatar' style={styles.Avatar}/>
@@ -66,27 +66,19 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 20,
     padding: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 1.25,
-    elevation: 5,
-  },
-  Shadow: Platform.select({
-    ios: {
-      shadowColor: '#171717',
-      shadowOffset: { width: -2, height: 4 },
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#171717',
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
       },
       android: {
-      elevation: 5,
-      shadowColor: '#171717',
-    },
-  }),
+        elevation: 5,
+        shadowColor: '#171717',
+      }
+    }),
+  },
   Avatar: {
     width: 50,
     height: 50,
