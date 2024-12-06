@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Platform, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 import { router } from 'expo-router'
-import Image from '../assets/complite-logo.png';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const openLesson = () => {
@@ -20,9 +19,9 @@ export default function Section() {
       </Pressable>
       <Text style={styles.headText}>Section Name</Text>
       <ScrollView>
-        <TouchableOpacity style={[styles.Card, styles.Shadow]} onPress={openLesson}>
+        <TouchableOpacity style={styles.Card} onPress={openLesson}>
           <View style={styles.CardImage}>
-            <ImageBackground source={Image} resizeMode='cover' />
+        
           </View>
           <View style={styles.CardBody}>
             <Text style={styles.CardTitle}>Lesson Title</Text>
@@ -55,27 +54,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 10,
     borderRadius: 30,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 1.25,
-    elevation: 5,
-  },
-  Shadow: Platform.select({
-    ios: {
-      shadowColor: '#171717',
-      shadowOffset: { width: -2, height: 4 },
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#171717',
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
       },
       android: {
-      elevation: 5,
-      shadowColor: '#171717',
-    },
-  }),
+        elevation: 5,
+        shadowColor: '#171717',
+      }
+    }),
+  },
   CardBody: {
     padding: 20,
   },

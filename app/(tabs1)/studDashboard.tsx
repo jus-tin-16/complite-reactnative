@@ -30,7 +30,7 @@ export default function AboutScreen() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Pressable style={styles.user} onPress={() => setIsProfileVisible(true)}>
+        <View style={styles.user}>
           <View style={styles.userAvatar}>
             <Image source={require('../assets/avatar.png')} style={styles.Avatar}/>
             <Text style={styles.headText}>Hi, User!</Text>
@@ -38,8 +38,11 @@ export default function AboutScreen() {
           <View style={styles.userPoints}>
             <Ionicons name="star" size={18} color="#F27B12" />
             <Text style={{fontSize: 14, color: '#F27B12'}}>100</Text>
+            <Pressable onPress={() => setIsProfileVisible(true)}>
+              <Ionicons name='settings-sharp' size={18} color="#F27B12" />
+            </Pressable>
           </View>
-        </Pressable>
+        </View>
 
         <Modal 
           animationType='slide'
